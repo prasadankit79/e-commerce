@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Container,
   Typography,
@@ -10,7 +10,6 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 import { useCart } from '../context/CartContext';
-
 
 const CheckoutPage = () => {
   const { cartItems, clearCart } = useCart();
@@ -43,7 +42,7 @@ const CheckoutPage = () => {
     };
 
     try {
-      await axios.post('http://localhost:5000/api/orders', order);
+      await axios.post('https://e-commerce-jplp.onrender.com/api/orders', order); // ✅ Updated URL
       alert('Order placed successfully!');
       clearCart();
     } catch (error) {
